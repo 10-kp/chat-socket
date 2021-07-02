@@ -1,0 +1,15 @@
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  color: white;
+  height: 15%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+  .rightContainer {
+    display: none;
+  }
+}
