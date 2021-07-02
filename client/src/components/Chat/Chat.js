@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'; //Coz we are using hooks
+import React, { useState, useEffect } from 'react'; //Using hooks
 import queryString from 'query-string'; //retrieve data from the url
-import io from 'socket.io-client'; //require io
+import io from 'socket.io-client';
 
 import './Chat.css';
 
@@ -24,14 +24,15 @@ const Chat = ({ location }) => {
 
   // Runs when the component renders
   useEffect(() => {
-    const { name, room } = queryString.parse(location.search); //location.search comes from react router
+    //location.search comes from react router
+    const { name, room } = queryString.parse(location.search);
 
     socket = io(ENDPOINT);
 
     setRoom(room);
     setName(name);
 
-    //  Retrieve the data users
+    // Retrieve the data users
     // Emit -> pass in a string that the backend recognizes
     socket.emit('join', { name, room }, (error) => {
       if (error) {
@@ -43,8 +44,9 @@ const Chat = ({ location }) => {
   //Handeling messages and only runs when messages array changes
   useEffect(() => {
     socket.on('message', (message) => {
-      //add new messages to our messages array the
-      setMessages((messages) => [...messages, message]); //"...messages"" copies the old messages and append the new
+      //Add new messages to our messages array
+      //"...messages"" copies the old messages and append the new
+      setMessages((messages) => [...messages, message]);
     });
 
     socket.on('roomData', ({ users }) => {
@@ -54,7 +56,7 @@ const Chat = ({ location }) => {
 
   //Functional component -> sending messages
   const sendMessage = (event) => {
-    event.preventDefault(); // full browser refreshes aren't good
+    event.preventDefault();
 
     if (message) {
       // Clears input field on callBack from index.js
@@ -62,7 +64,7 @@ const Chat = ({ location }) => {
     }
   };
   console.log(message, messages);
-  // i need another component that will display the users
+  // Component that will display the users
   return (
     <div className='outerContainer'>
       <div className='container'>
