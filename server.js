@@ -2,6 +2,11 @@ const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
 
+// FOR SOCKET.IO - 1
+var Server = require('http').Server;
+const session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+
 //Connect back-end to front-end
 //Avoid ignoring requests(sockets)
 const cors = require('cors');
@@ -20,9 +25,27 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+// FOR SOCKET.IO - 2
+const sessionMiddleware = session({
+  store: new RedisStore({}), // XXX redis server config
+  secret: 'keyboard cat',
+});
+
+// Express session middleware as a Socket.IO middleware
+sio.use(function (socket, next) {
+  sessionMiddleware(socket.request, socket.request.res, next);
+});
+
 app.use(router);
 app.use(cors());
+app.use(sessionMiddleware);
 
+// FOR SOCKET.IO - 3
+app.get('/', function (req, res) {
+  req.session; // Session object in a normal request
+});
+
+// SOCKET.IO INPUTS
 io.on('connection', (socket) => {
   // Calls a callBack function with 2 parameters -> name, room (access back-end)
   socket.on('join', ({ name, room }, callback) => {

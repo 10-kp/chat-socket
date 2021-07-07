@@ -10,7 +10,7 @@ const Join = () => {
   return (
     <div className='joinOuterContainer'>
       <div className='joinInnerContainer'>
-        <h1 className='heading'>Join</h1>
+        <h1 className='heading'>Let's Talk About Yarn!</h1>
         {/* two hooks for the name/room data */}
         {/* Event occurs when users type something in this input and grab data from it */}
         <div>
