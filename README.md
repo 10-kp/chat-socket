@@ -28,7 +28,7 @@ In the command line of the working directory, install the following NPM packages
 
 - [React.js](https://reactjs.org/)
 - [Socket.io](https://socket.io/)
-- [Express](https://expressjs.com/
+- [Express](https://expressjs.com/)
 - [Node.js](https://nodejs.org/en/)
 - [Redis](https://redis.io/)
 - [Javascript](https://www.javascript.com/)
