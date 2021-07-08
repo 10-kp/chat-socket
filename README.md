@@ -22,7 +22,7 @@ An app that allows users to enter create and join live chat rooms. To get starte
 
 ## Installation:
 
-In the command line of the working directory, install the following NPM packages: axios, express, mongoose, react, react-bootstrap, react-dom, react-strip, uuid.
+In the command line of the working directory, install the following NPM packages: express, react-emoji, react-dom, express-session and more!
 
 ## Technologies
 
