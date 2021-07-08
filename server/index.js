@@ -1,49 +1,21 @@
-const express = require('express');
+const express = require('express'); //no important statements since we are in the node and we import it via require
 const socketio = require('socket.io');
 const http = require('http');
 
-// FOR SOCKET.IO - 1
-var Server = require('http').Server;
-const session = require('express-session');
-var RedisStore = require('connect-redis')(session);
-
-//Connect back-end to front-end
-//Avoid ignoring requests(sockets)
+//we used cors since heroku is used for backend, netlify is used for frontend, we need to connect them
 const cors = require('cors');
 
-const {
-  addUser,
-  removeUser,
-  getUser,
-  getUsersInRoom,
-} = require('./server/users.js');
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
 
 const PORT = process.env.PORT || 5000;
-const router = require('./server/router');
+const router = require('./router');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-// FOR SOCKET.IO - 2
-const sessionMiddleware = session({
-  store: new RedisStore({}), // XXX redis server config
-  secret: 'keyboard cat',
-});
-
-// Express session middleware as a Socket.IO middleware
-sio.use(function (socket, next) {
-  sessionMiddleware(socket.request, socket.request.res, next);
-});
-
 app.use(router);
 app.use(cors());
-app.use(sessionMiddleware);
-
-// FOR SOCKET.IO - 3
-app.get('/', function (req, res) {
-  req.session; // Session object in a normal request
-});
 
 // SOCKET.IO INPUTS
 io.on('connection', (socket) => {
