@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/javascript-69%25-yellow)]()
+[![](https://img.shields.io/badge/javascript-68%25-yellow)]()
 [![](https://img.shields.io/badge/CSS-22%25-blue)]()
 [![](https://img.shields.io/badge/HTML-9%25-red)]()
 
