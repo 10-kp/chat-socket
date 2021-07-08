@@ -4,7 +4,7 @@
 
 # Chat-App
 
-A real-time Chat-app using Socket.io, React and Express.
+A real-time Chat-app using Netlify, Socket.io, React and Express.
 
 <img width="1000" alt="Screen Shot 1" src="client/public/chat-pic.png">
 
@@ -26,6 +26,7 @@ In the command line of the working directory, install the following NPM packages
 
 ## Technologies
 
+- [Netlify](https://www.netlify.com/)
 - [React.js](https://reactjs.org/)
 - [Socket.io](https://socket.io/)
 - [Express](https://expressjs.com/)
@@ -37,7 +38,7 @@ In the command line of the working directory, install the following NPM packages
 
 ## Links
 
-Click here for the [Link]()
+Click here for the [Link](https://jovial-dijkstra-0de28b.netlify.app)
 
 Click here for [GitHub](https://github.com/10-kp/chat-socket)
 

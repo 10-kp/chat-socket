@@ -20,7 +20,7 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
 
   // To confirm if it is working
-  const ENDPOINT = 'https://react-chat-app-v-1.herokuapp.com/';
+  const ENDPOINT = 'https://react-chat-app-project.herokuapp.com/';
 
   // Runs when the component renders
   useEffect(() => {
